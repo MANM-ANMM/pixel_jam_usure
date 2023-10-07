@@ -3,7 +3,7 @@ extends VehicleBody3D
 var deviation := 0.0 # sur la direction de base
 
 const STEER_SPEED = 0.05
-const STEER_LIMIT = PI/16
+const STEER_LIMIT = PI/8
 
 @export var engine_force_value = 40
 @export var max_engine_force = 1000

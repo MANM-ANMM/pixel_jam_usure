@@ -1,8 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://g25d8uac6l4k"]
+[gd_scene load_steps=10 format=3 uid="uid://g25d8uac6l4k"]
 
 [ext_resource type="PackedScene" uid="uid://c15ovux6s7bt0" path="res://scene/voiture.tscn" id="1_2q58a"]
 [ext_resource type="Script" path="res://script/camera.gd" id="2_udi7j"]
-[ext_resource type="PackedScene" uid="uid://cqe4d136dwqbx" path="res://scene/maps/map_ice_and_fire.tscn" id="3_riv8w"]
+[ext_resource type="PackedScene" uid="uid://sjvvtnqeg7rr" path="res://scene/maps/map_desert.tscn" id="3_mm7i3"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_174gc"]
 
@@ -18,8 +18,6 @@ albedo_texture = SubResource("NoiseTexture2D_e7pmw")
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_gj7fm"]
 material = SubResource("StandardMaterial3D_4ca0j")
-
-[sub_resource type="Environment" id="Environment_er65x"]
 
 [node name="Main" type="Node3D"]
 
@@ -38,16 +36,13 @@ transform = Transform3D(0.108624, 0, 0.994083, 0, 1, 0, -0.994083, 0, 0.108624, 
 current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.891387, -0.398451, 0.216026, 0, 0.476622, 0.879108, -0.453244, -0.783625, 0.424854, 0, 4.99698, 0)
-light_energy = 0.48
+transform = Transform3D(0.891387, -0.39845, 0.216026, 0, 0.476622, 0.879108, -0.453244, -0.783625, 0.424855, 0, 112.55, 0)
+light_energy = 0.15
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(417.184, 0, 0, 0, 26.74, 0, 0, 0, 451.044, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_gj7fm")
-
-[node name="Map_Ice_and_Fire" parent="." instance=ExtResource("3_riv8w")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -55.2312, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("voit")]
 transform = Transform3D(-1, 4.43989e-08, -1.44321e-07, 0, 0.955793, 0.29404, 1.50996e-07, 0.29404, -0.955793, -119.427, 25.3624, -178.44)
@@ -55,5 +50,4 @@ current = true
 script = ExtResource("2_udi7j")
 voit = NodePath("../Voiture")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_er65x")
+[node name="map_desert" parent="." instance=ExtResource("3_mm7i3")]
