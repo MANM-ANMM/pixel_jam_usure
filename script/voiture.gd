@@ -32,10 +32,18 @@ func _physics_process(delta):
 		engine_force = 0
 
 	if Input.is_action_pressed("freiner"):
-		brake = move_toward(brake, actual_max_brake, delta*brake_accel)
-		actual_max_brake -= speed*speed*delta*0.001
-		actual_max_brake = clampf(actual_max_brake, min_brake, max_brake)
-		print (actual_max_brake, " ", speed)
+		var dir = (linear_velocity.dot(Vector3.FORWARD.rotated(Vector3.UP, rotation.y)))
+		if dir < -0.01:
+			brake = move_toward(brake, actual_max_brake, delta*brake_accel)
+			actual_max_brake -= speed*speed*delta*0.001
+			actual_max_brake = clampf(actual_max_brake, min_brake, max_brake)
+			print (actual_max_brake, " ", speed)
+		else:
+			if speed < 5 and speed != 0:
+				engine_force = -clamp(engine_force_value * 5 / speed, 0, max_engine_force)
+			else:
+				engine_force = -engine_force_value
+			print(engine_force)
 	else:
 		brake = 0.0
 
