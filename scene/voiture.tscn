@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://c15ovux6s7bt0"]
+[gd_scene load_steps=8 format=3 uid="uid://c15ovux6s7bt0"]
 
 [ext_resource type="Script" path="res://script/voiture.gd" id="1_524kn"]
 [ext_resource type="Script" path="res://script/roue.gd" id="2_8vqsu"]
 [ext_resource type="PackedScene" uid="uid://chgr8ogitt8nb" path="res://model/Voiture_peinte.dae" id="3_ubyof"]
+[ext_resource type="Texture2D" uid="uid://pgwpwuwst2l7" path="res://Textures/Texture_voiture.png" id="4_gbdtj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk1qq"]
 size = Vector3(5.71497, 2.07979, 4.19113)
@@ -10,52 +11,58 @@ size = Vector3(5.71497, 2.07979, 4.19113)
 [sub_resource type="BoxShape3D" id="BoxShape3D_heqoo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khttj"]
+albedo_texture = ExtResource("4_gbdtj")
+metallic = 0.93
+roughness = 0.5
 
 [node name="Voiture" type="VehicleBody3D"]
 axis_lock_angular_x = true
 axis_lock_angular_z = true
-mass = 800.0
+mass = 400.0
 script = ExtResource("1_524kn")
 engine_force_value = 40000
 max_engine_force = 100000
-max_brake = 200
-brake_accel = 150
+max_brake = 800
+brake_accel = 600
 metadata/_edit_group_ = true
 
-[node name="VehicleWheelAD" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.295504, 0.943702)
+[node name="VehicleWheelAvD" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.295504, -0.222447)
 use_as_traction = true
 use_as_steering = true
-wheel_friction_slip = 5.0
+wheel_friction_slip = 6.0
 script = ExtResource("2_8vqsu")
 
-[node name="VehicleWheelAG" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.295504, 0.943702)
+[node name="VehicleWheelAvG" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.295504, -0.222447)
 use_as_traction = true
 use_as_steering = true
-wheel_friction_slip = 5.0
+wheel_friction_slip = 6.0
 script = ExtResource("2_8vqsu")
 
 [node name="VehicleWheelArD" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.282656, -2.13223)
-wheel_friction_slip = 4.0
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.282656, -3.29838)
+wheel_friction_slip = 4.5
 script = ExtResource("2_8vqsu")
+arriere = true
 
 [node name="VehicleWheelArG" type="VehicleWheel3D" parent="."]
-transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.282656, -2.13223)
-wheel_friction_slip = 4.0
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.282656, -3.29838)
+wheel_friction_slip = 4.5
 script = ExtResource("2_8vqsu")
+arriere = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926196, 0.781642, -0.552631)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926196, 0.781642, -1.71878)
 shape = SubResource("BoxShape3D_rk1qq")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926197, 0.0570228, 0.94216)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926197, 0.0570228, -0.223989)
 shape = SubResource("BoxShape3D_heqoo")
 
 [node name="Voiture_peinte" parent="." instance=ExtResource("3_ubyof")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0926197, 0.428, 2.03034)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0926197, 0.428, 0.864191)
+metadata/_edit_group_ = true
 
 [node name="Cube" parent="Voiture_peinte" index="0"]
 material_override = SubResource("StandardMaterial3D_khttj")
