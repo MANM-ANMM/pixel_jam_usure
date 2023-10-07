@@ -14,7 +14,7 @@ dest_files=["res://.godot/imported/Voiture.dae-2729813de5c952860483f93f0f4f6798.
 [params]
 
 nodes/root_type="Node3D"
-nodes/root_name="Scene Root"
+nodes/root_name="Voiture_Model"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 meshes/ensure_tangents=true

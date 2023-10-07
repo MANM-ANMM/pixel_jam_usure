@@ -1,31 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://c15ovux6s7bt0"]
+[gd_scene load_steps=6 format=3 uid="uid://c15ovux6s7bt0"]
 
 [ext_resource type="Script" path="res://script/voiture.gd" id="1_524kn"]
 [ext_resource type="Script" path="res://script/roue.gd" id="2_8vqsu"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_gv1id"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_755qx"]
-noise = SubResource("FastNoiseLite_gv1id")
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_0yv41"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0620b"]
-noise = SubResource("FastNoiseLite_0yv41")
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bisa"]
-albedo_color = Color(0.603922, 0.423529, 0.996078, 1)
-albedo_texture = SubResource("NoiseTexture2D_755qx")
-metallic = 0.8
-roughness = 0.55
-roughness_texture = SubResource("NoiseTexture2D_0620b")
-
-[sub_resource type="BoxMesh" id="BoxMesh_doo6u"]
-material = SubResource("StandardMaterial3D_5bisa")
-size = Vector3(2, 0.7, 1)
+[ext_resource type="PackedScene" uid="uid://bajc4iknj4rnd" path="res://model/Voiture.dae" id="2_finfj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk1qq"]
-size = Vector3(2, 0.7, 1)
+size = Vector3(5.71497, 2.07979, 4.19113)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_heqoo"]
 
 [node name="Voiture" type="VehicleBody3D"]
 axis_lock_angular_x = true
@@ -33,39 +15,42 @@ axis_lock_angular_z = true
 mass = 800.0
 script = ExtResource("1_524kn")
 engine_force_value = 40000
-max_engine_force = 10000
+max_engine_force = 100000
 max_brake = 200
 brake_accel = 150
 metadata/_edit_group_ = true
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701935, 0.0902272, 0)
-mesh = SubResource("BoxMesh_doo6u")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.701935, 0.0902272, 0)
-shape = SubResource("BoxShape3D_rk1qq")
+[node name="Voiture_Model" parent="." instance=ExtResource("2_finfj")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0926197, 0.428, 2.03034)
 
 [node name="VehicleWheelAD" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.298065, -0.160755, 0.602025)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.295504, 0.943702)
 use_as_traction = true
 use_as_steering = true
-wheel_friction_slip = 10.0
+wheel_friction_slip = 5.0
 script = ExtResource("2_8vqsu")
 
 [node name="VehicleWheelAG" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.298065, -0.160755, -0.546792)
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.295504, 0.943702)
 use_as_traction = true
 use_as_steering = true
-wheel_friction_slip = 10.0
+wheel_friction_slip = 5.0
 script = ExtResource("2_8vqsu")
 
 [node name="VehicleWheelArD" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.70194, -0.160755, 0.602025)
-wheel_friction_slip = 10.0
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.282656, -2.13223)
+wheel_friction_slip = 4.0
 script = ExtResource("2_8vqsu")
 
 [node name="VehicleWheelArG" type="VehicleWheel3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.70194, -0.160755, -0.546792)
-wheel_friction_slip = 10.0
+transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.282656, -2.13223)
+wheel_friction_slip = 4.0
 script = ExtResource("2_8vqsu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926196, 0.781642, -0.552631)
+shape = SubResource("BoxShape3D_rk1qq")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926197, 0.0570228, 0.94216)
+shape = SubResource("BoxShape3D_heqoo")

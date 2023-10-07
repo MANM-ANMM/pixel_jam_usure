@@ -1,6 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://g25d8uac6l4k"]
+[gd_scene load_steps=8 format=3 uid="uid://g25d8uac6l4k"]
 
 [ext_resource type="PackedScene" uid="uid://c15ovux6s7bt0" path="res://scene/voiture.tscn" id="1_2q58a"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_174gc"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_jwxva"]
 
@@ -22,6 +24,7 @@ size = Vector2(1000, 1000)
 [node name="Main" type="Node3D"]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_174gc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("WorldBoundaryShape3D_jwxva")
@@ -29,13 +32,13 @@ shape = SubResource("WorldBoundaryShape3D_jwxva")
 [node name="Voiture" parent="." instance=ExtResource("1_2q58a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21469, 0)
 
+[node name="Camera3D" type="Camera3D" parent="Voiture"]
+transform = Transform3D(-1, 2.57058e-08, -8.35581e-08, 0, 0.955793, 0.29404, 8.74228e-08, 0.29404, -0.955793, 0, 23.3045, -34.9086)
+current = true
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.891387, -0.398451, 0.216026, 0, 0.476622, 0.879108, -0.453244, -0.783625, 0.424854, 0, 4.99698, 0)
 light_energy = 2.143
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_e625q")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(-2.18557e-08, 0.866025, -0.5, 3.78552e-08, 0.5, 0.866025, 1, -1.77636e-15, -4.37114e-08, -3.46659, 45.2705, 0)
-current = true
