@@ -28,7 +28,7 @@ physics_material_override = SubResource("PhysicsMaterial_174gc")
 shape = SubResource("WorldBoundaryShape3D_jwxva")
 
 [node name="Voiture" parent="." instance=ExtResource("1_2q58a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21469, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 293.06, 56.9199, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Voiture"]
 transform = Transform3D(-1, 4.43988e-08, -1.44321e-07, 0, 0.955793, 0.29404, 1.50996e-07, 0.29404, -0.955793, 0, 23.305, -34.909)
@@ -44,8 +44,7 @@ transform = Transform3D(417.184, 0, 0, 0, 26.74, 0, 0, 0, 451.044, 0, 0, 0)
 visible = false
 mesh = SubResource("PlaneMesh_gj7fm")
 
-[node name="map_desert" parent="." instance=ExtResource("3_hpu1p")]
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.414118, 5.43125)
-current = true
+
+[node name="map_desert" parent="." instance=ExtResource("3_hpu1p")]
