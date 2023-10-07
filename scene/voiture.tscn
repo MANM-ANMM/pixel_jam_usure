@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://pgwpwuwst2l7" path="res://Textures/Texture_voiture.png" id="4_gbdtj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk1qq"]
-size = Vector3(5.71497, 2.07979, 4.19113)
+size = Vector3(5.715, 1.36, 4.191)
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_heqoo"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_8o7uy"]
+height = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khttj"]
 albedo_texture = ExtResource("4_gbdtj")
@@ -16,8 +17,6 @@ metallic = 0.93
 roughness = 0.5
 
 [node name="Voiture" type="VehicleBody3D"]
-axis_lock_angular_x = true
-axis_lock_angular_z = true
 mass = 400.0
 script = ExtResource("1_524kn")
 engine_force_value = 40000
@@ -31,6 +30,9 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193,
 use_as_traction = true
 use_as_steering = true
 wheel_friction_slip = 6.0
+suspension_travel = 0.3
+suspension_max_force = 400.0
+damping_compression = 0.5
 script = ExtResource("2_8vqsu")
 
 [node name="VehicleWheelAvG" type="VehicleWheel3D" parent="."]
@@ -38,17 +40,26 @@ transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857
 use_as_traction = true
 use_as_steering = true
 wheel_friction_slip = 6.0
+suspension_travel = 0.3
+suspension_max_force = 400.0
+damping_compression = 0.5
 script = ExtResource("2_8vqsu")
 
 [node name="VehicleWheelArD" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, 1.55193, -0.282656, -3.29838)
 wheel_friction_slip = 4.5
+suspension_travel = 0.3
+suspension_max_force = 400.0
+damping_compression = 0.5
 script = ExtResource("2_8vqsu")
 arriere = true
 
 [node name="VehicleWheelArG" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.282656, -3.29838)
 wheel_friction_slip = 4.5
+suspension_travel = 0.3
+suspension_max_force = 400.0
+damping_compression = 0.5
 script = ExtResource("2_8vqsu")
 arriere = true
 
@@ -56,9 +67,25 @@ arriere = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926196, 0.781642, -1.71878)
 shape = SubResource("BoxShape3D_rk1qq")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0926197, 0.0570228, -0.223989)
-shape = SubResource("BoxShape3D_heqoo")
+[node name="ColisionShapeRoueAG" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -1.50195, -0.299886, -0.224249)
+shape = SubResource("CylinderShape3D_8o7uy")
+disabled = true
+
+[node name="CollisionShapeRoueAD" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.27096, -0.299886, -0.224249)
+shape = SubResource("CylinderShape3D_8o7uy")
+disabled = true
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, -1.50195, -0.299886, -3.32649)
+shape = SubResource("CylinderShape3D_8o7uy")
+disabled = true
+
+[node name="CollisionShape3D5" type="CollisionShape3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 4.37114e-08, 0, -4.37114e-08, -1, 1, -4.37114e-08, 1.91069e-15, 1.27096, -0.299886, -3.32649)
+shape = SubResource("CylinderShape3D_8o7uy")
+disabled = true
 
 [node name="Voiture_peinte" parent="." instance=ExtResource("3_ubyof")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0926197, 0.428, 0.864191)
