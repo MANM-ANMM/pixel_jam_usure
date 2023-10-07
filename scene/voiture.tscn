@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=3 uid="uid://c15ovux6s7bt0"]
+
+[ext_resource type="Script" path="res://script/voiture.gd" id="1_524kn"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gv1id"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_755qx"]
+noise = SubResource("FastNoiseLite_gv1id")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0yv41"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0620b"]
+noise = SubResource("FastNoiseLite_0yv41")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5bisa"]
+albedo_color = Color(0.603922, 0.423529, 0.996078, 1)
+albedo_texture = SubResource("NoiseTexture2D_755qx")
+metallic = 0.8
+roughness = 0.55
+roughness_texture = SubResource("NoiseTexture2D_0620b")
+
+[sub_resource type="BoxMesh" id="BoxMesh_doo6u"]
+material = SubResource("StandardMaterial3D_5bisa")
+size = Vector3(2, 0.7, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rk1qq"]
+size = Vector3(2, 0.7, 1)
+
+[node name="Voiture" type="RigidBody3D"]
+axis_lock_linear_y = true
+axis_lock_angular_x = true
+axis_lock_angular_z = true
+script = ExtResource("1_524kn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_doo6u")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rk1qq")

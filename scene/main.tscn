@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://g25d8uac6l4k"]
+
+[ext_resource type="PackedScene" uid="uid://c15ovux6s7bt0" path="res://scene/voiture.tscn" id="1_2q58a"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_jwxva"]
+
+[node name="Main" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_jwxva")
+
+[node name="Voiture" parent="." instance=ExtResource("1_2q58a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.21469, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.945536, 0.325519, 0, -0.325519, 0.945536, 0, 4.8766, 7.66986)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.891387, -0.398451, 0.216026, 0, 0.476622, 0.879108, -0.453244, -0.783625, 0.424854, 0, 4.99698, 0)
+light_energy = 2.143
