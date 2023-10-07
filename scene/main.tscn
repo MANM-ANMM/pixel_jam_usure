@@ -31,14 +31,8 @@ disabled = true
 [node name="Voiture" parent="." instance=ExtResource("1_2q58a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.427, 2.05739, -143.531)
 
-[node name="Camera3D" type="Camera3D" parent="Voiture"]
-transform = Transform3D(-1, 4.43988e-08, -1.44321e-07, 0, 0.955793, 0.29404, 1.50996e-07, 0.29404, -0.955793, 0, 23.305, -34.909)
-current = true
-script = ExtResource("2_udi7j")
-
 [node name="Camera3D2" type="Camera3D" parent="Voiture"]
 transform = Transform3D(0.108624, 0, 0.994083, 0, 1, 0, -0.994083, 0, 0.108624, 13.0857, 0, 0)
-current = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.891387, -0.398451, 0.216026, 0, 0.476622, 0.879108, -0.453244, -0.783625, 0.424854, 0, 4.99698, 0)
@@ -51,3 +45,9 @@ mesh = SubResource("PlaneMesh_gj7fm")
 
 [node name="Map_Ice_and_Fire" parent="." instance=ExtResource("3_riv8w")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -55.2312, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("voit")]
+transform = Transform3D(-1, 4.43989e-08, -1.44321e-07, 0, 0.955793, 0.29404, 1.50996e-07, 0.29404, -0.955793, -119.427, 25.3624, -178.44)
+current = true
+script = ExtResource("2_udi7j")
+voit = NodePath("../Voiture")

@@ -1,15 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://c15ovux6s7bt0"]
+[gd_scene load_steps=9 format=3 uid="uid://c15ovux6s7bt0"]
 
 [ext_resource type="Script" path="res://script/voiture.gd" id="1_524kn"]
 [ext_resource type="Script" path="res://script/roue.gd" id="2_8vqsu"]
 [ext_resource type="PackedScene" uid="uid://chgr8ogitt8nb" path="res://model/Voiture_peinte.dae" id="3_ubyof"]
 [ext_resource type="Texture2D" uid="uid://pgwpwuwst2l7" path="res://Textures/Texture_voiture.png" id="4_gbdtj"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hxfav"]
+friction = 0.0
+
 [sub_resource type="CylinderMesh" id="CylinderMesh_02sfn"]
 height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk1qq"]
-size = Vector3(5.715, 2.42, 4.191)
+size = Vector3(5.715, 1.825, 4.191)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_khttj"]
 albedo_texture = ExtResource("4_gbdtj")
@@ -17,6 +20,7 @@ metallic = 0.93
 roughness = 0.5
 
 [node name="Voiture" type="VehicleBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_hxfav")
 script = ExtResource("1_524kn")
 engine_force_value = 40000
 max_engine_force = 100000
