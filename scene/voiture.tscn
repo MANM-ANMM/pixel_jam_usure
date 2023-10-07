@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://c15ovux6s7bt0"]
+[gd_scene load_steps=8 format=3 uid="uid://c15ovux6s7bt0"]
 
 [ext_resource type="Script" path="res://script/voiture.gd" id="1_524kn"]
 [ext_resource type="Script" path="res://script/roue.gd" id="2_8vqsu"]
 [ext_resource type="PackedScene" uid="uid://chgr8ogitt8nb" path="res://model/Voiture_peinte.dae" id="3_ubyof"]
 [ext_resource type="Texture2D" uid="uid://pgwpwuwst2l7" path="res://Textures/Texture_voiture.png" id="4_gbdtj"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_02sfn"]
+height = 0.5
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rk1qq"]
 size = Vector3(5.715, 1.36, 4.191)
@@ -30,6 +33,10 @@ wheel_friction_slip = 6.0
 suspension_travel = 0.3
 suspension_max_force = 6e+06
 script = ExtResource("2_8vqsu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="VehicleWheelAvD"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_02sfn")
 
 [node name="VehicleWheelAvG" type="VehicleWheel3D" parent="."]
 transform = Transform3D(1, 0, 1.06581e-14, 0, 1, 0, -1.06581e-14, 0, 1, -1.75857, -0.415868, -0.222447)
