@@ -6,36 +6,36 @@ const STEER_SPEED = 1.5
 const STEER_LIMIT = 0.4
 
 @export var engine_force_value = 40
+@export var max_engine_force = 1000
+
+@export var max_brake := 20
+@onready var actual_max_brake := max_brake
+@onready var min_brake := max_brake /8
+@export var brake_accel:=10
 
 var steer_target = 0
 
 
 func _physics_process(delta):
-	var fwd_mps = (linear_velocity * transform.basis.inverse()).x
 
 	steer_target = Input.get_action_strength("tourner_gauche") - Input.get_action_strength("tourner_droite")
 	steer_target *= STEER_LIMIT
 
+	var speed = linear_velocity.length()
 	if Input.is_action_pressed("avancer"):
 		# Increase engine force at low speeds to make the initial acceleration faster.
-		var speed = linear_velocity.length()
 		if speed < 5 and speed != 0:
-			engine_force = clamp(engine_force_value * 5 / speed, 0, 100)
+			engine_force = clamp(engine_force_value * 5 / speed, 0, max_engine_force)
 		else:
 			engine_force = engine_force_value
 	else:
 		engine_force = 0
 
 	if Input.is_action_pressed("freiner"):
-		# Increase engine force at low speeds to make the initial acceleration faster.
-		if fwd_mps >= -1:
-			var speed = linear_velocity.length()
-			if speed < 5 and speed != 0:
-				engine_force = -clamp(engine_force_value * 5 / speed, 0, 100)
-			else:
-				engine_force = -engine_force_value
-		else:
-			brake = 1
+		brake = move_toward(brake, actual_max_brake, delta*brake_accel)
+		actual_max_brake -= speed*speed*delta*0.001
+		actual_max_brake = clampf(actual_max_brake, min_brake, max_brake)
+		print (actual_max_brake, " ", speed)
 	else:
 		brake = 0.0
 
