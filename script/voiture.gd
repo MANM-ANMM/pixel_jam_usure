@@ -2,8 +2,8 @@ extends VehicleBody3D
 
 var deviation := 0.0 # sur la direction de base
 
-const STEER_SPEED = 1.5
-const STEER_LIMIT = PI/3
+const STEER_SPEED = 0.05
+const STEER_LIMIT = PI/16
 
 @export var engine_force_value = 40
 @export var max_engine_force = 1000
@@ -46,5 +46,8 @@ func _physics_process(delta):
 		brake = 0.0
 	
 	
-	
 	steering = move_toward(steering, steer_target, STEER_SPEED * delta)
+
+func _integrate_forces(state):
+	if Input.is_action_just_pressed("klaxoner"):
+		state.apply_torque_impulse(Vector3(0,0, sign(steering)*1000))
