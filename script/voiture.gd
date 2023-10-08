@@ -2,13 +2,13 @@ extends VehicleBody3D
 
 var deviation := 0.0 # sur la direction de base
 
-const STEER_SPEED = 0.05
+const STEER_SPEED = 0.2
 const STEER_LIMIT = PI/8
 
-@export var engine_force_value = 40
-@export var max_engine_force = 1000
+@export var engine_force_value = 400
+@export var max_engine_force = 10000
 
-@export var max_brake := 20
+@export var max_brake := 200
 @onready var actual_max_brake := max_brake
 @onready var min_brake := max_brake /8
 @export var brake_accel:=10

@@ -20,11 +20,10 @@ metallic = 0.93
 roughness = 0.5
 
 [node name="Voiture" type="VehicleBody3D"]
-mass = 60.0
+mass = 300.0
 physics_material_override = SubResource("PhysicsMaterial_hxfav")
 script = ExtResource("1_524kn")
-engine_force_value = 100
-max_engine_force = 250
+max_engine_force = 1000
 max_brake = 8
 brake_accel = 6
 metadata/_edit_group_ = true
