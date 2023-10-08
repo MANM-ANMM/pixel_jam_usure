@@ -43,6 +43,7 @@ stream = ExtResource("2_c8naj")
 volume_db = 2.0
 unit_size = 40.0
 autoplay = true
+bus = &"Son"
 
 [node name="Gyrophare" parent="." instance=ExtResource("5_hiiih")]
 transform = Transform3D(1, 0, 0, 0, 0.988164, 0.1534, 0, -0.1534, 0.988164, 0.327568, 0.900539, 0.400987)

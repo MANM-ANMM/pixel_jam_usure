@@ -37,6 +37,8 @@ func _physics_process(delta):
 		engine_force = 0
 
 	if Input.is_action_pressed("freiner"):
+		if not $AudioFrein.playing:
+			$AudioFrein.play()
 		var dir = (linear_velocity.dot(Vector3.FORWARD.rotated(Vector3.UP, rotation.y)))
 		if dir < -0.01:
 			brake = move_toward(brake, actual_max_brake, delta*brake_accel)
@@ -56,3 +58,7 @@ func _physics_process(delta):
 func _integrate_forces(state):
 	if Input.is_action_just_pressed("klaxoner"):
 		state.apply_torque_impulse(Vector3(0,0, sign(steering)*1000))
+		if randi() % 2:
+			$AudioKlax1.play()
+		else:
+			$AudioKlax2.play()
