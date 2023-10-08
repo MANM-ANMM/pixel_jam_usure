@@ -55,7 +55,7 @@ voit = NodePath("../Voiture")
 [node name="map_desert" parent="." instance=ExtResource("3_qhuji")]
 
 [node name="Roulot" parent="map_desert/PathRoulot" index="0" instance=ExtResource("4_d8nvq")]
-transform = Transform3D(0.184399, 0.0925021, 0.978478, 0.210628, 0.968707, -0.13127, -0.960017, 0.230302, 0.159144, -1.08502, 3.12636, -10.0821)
+transform = Transform3D(0.179833, 0.0933722, 0.979245, 0.205074, 0.970048, -0.130154, -0.962084, 0.224225, 0.155298, -1.07944, 3.12561, -10.0812)
 progress = 16.41
 
 [node name="AudioStreamPlayer3D" parent="map_desert/PathRoulot/Roulot" index="2"]

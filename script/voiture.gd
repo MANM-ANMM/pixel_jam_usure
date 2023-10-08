@@ -15,6 +15,11 @@ const STEER_LIMIT = PI/8
 
 var steer_target = 0
 
+func _process(delta):
+	if Input.is_action_just_pressed("regarder_derriere"):
+		$Camera3D.current = true
+	elif Input.is_action_just_released("regarder_derriere"):
+		$Camera3D.current = false
 
 func _physics_process(delta):
 

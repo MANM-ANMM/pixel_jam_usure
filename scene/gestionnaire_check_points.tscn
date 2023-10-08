@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bi74plcn8xg2u"]
+
+[ext_resource type="Script" path="res://script/gestionnaire_check_points.gd" id="1_ykbt7"]
+
+[node name="GestionnaireCheckPoints" type="Node3D"]
+script = ExtResource("1_ykbt7")
