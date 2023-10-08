@@ -1,5 +1,7 @@
 extends Node3D
 
+signal niveau_termine
+
 @export var map:PackedScene
 @export var voiture:PackedScene
 @export var roulot:PackedScene
@@ -16,10 +18,16 @@ func start():
 	c.position = m.spawn_camera.global_position
 	c.voit = v
 	c.distance_voit = c.distance_2d(m.spawn_camera.global_position, v.global_position)
-	m.path_roulot.add_child(roulot.instantiate())
 	
+	var r:=roulot.instantiate()
+	m.path_roulot.add_child(r)
+	r.connect("touche", fin_niveau)
 
+
+func fin_niveau():
+	clean()
+	emit_signal("niveau_termine")
 
 func clean():
 	for c in get_children():
-		c.remove_child(c)
+		c.queue_free()

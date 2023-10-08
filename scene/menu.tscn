@@ -26,3 +26,4 @@ text = "Desert"
 camera = ExtResource("4_hvcp4")
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Desert" to="." method="_on_desert_pressed"]
+[connection signal="niveau_termine" from="chargeurNiveau" to="." method="_on_chargeur_niveau_niveau_termine"]
