@@ -10,11 +10,12 @@ func start():
 	add_child(m)
 	var v:=voiture.instantiate()
 	add_child(v)
-	v.position = m.spawn_voiture.position
+	v.position = m.spawn_voiture.global_position
 	var c:= camera.instantiate()
-	c.position = m.spawn_camera.position
-	c.voit = v
 	add_child(c)
+	c.position = m.spawn_camera.global_position
+	c.voit = v
+	c.distance_voit = c.distance_2d(m.spawn_camera.global_position, v.global_position)
 	m.path_roulot.add_child(roulot.instantiate())
 	
 

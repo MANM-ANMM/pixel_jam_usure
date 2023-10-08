@@ -1,9 +1,6 @@
 extends Camera3D
 
-@export var voit :VehicleBody3D:
-	set(val):
-		voit = val
-		distance_voit = distance_2d(voit.position, position)
+@export var voit :VehicleBody3D
 
 var angle_cam := 0
 var smooth_x:=100.0
