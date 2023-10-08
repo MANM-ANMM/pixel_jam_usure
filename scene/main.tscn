@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c15ovux6s7bt0" path="res://scene/voiture.tscn" id="1_2q58a"]
 [ext_resource type="Script" path="res://script/camera.gd" id="2_udi7j"]
-[ext_resource type="PackedScene" uid="uid://sjvvtnqeg7rr" path="res://scene/maps/map_desert.tscn" id="3_mm7i3"]
+[ext_resource type="PackedScene" uid="uid://cqe4d136dwqbx" path="res://scene/maps/map_ice_and_fire.tscn" id="3_riv8w"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_174gc"]
 
@@ -29,7 +29,7 @@ shape = SubResource("WorldBoundaryShape3D_jwxva")
 disabled = true
 
 [node name="Voiture" parent="." instance=ExtResource("1_2q58a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.427, -3.107, -143.531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.427, -7.89505, -143.531)
 
 [node name="Camera3D2" type="Camera3D" parent="Voiture"]
 transform = Transform3D(0.108624, 0, 0.994083, 0, 1, 0, -0.994083, 0, 0.108624, 7.99028, 0.53401, 0)
@@ -38,7 +38,7 @@ current = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.891387, -0.39845, 0.216026, 0, 0.476622, 0.879108, -0.453244, -0.783625, 0.424855, 0, 112.55, 0)
 light_color = Color(1, 0.596078, 0.827451, 1)
-light_energy = 0.05
+light_energy = 0.2
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(417.184, 0, 0, 0, 26.74, 0, 0, 0, 451.044, 0, 0, 0)
@@ -51,4 +51,5 @@ current = true
 script = ExtResource("2_udi7j")
 voit = NodePath("../Voiture")
 
-[node name="map_desert" parent="." instance=ExtResource("3_mm7i3")]
+[node name="Map_Ice_and_Fire" parent="." instance=ExtResource("3_riv8w")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -60.6408, 0)
