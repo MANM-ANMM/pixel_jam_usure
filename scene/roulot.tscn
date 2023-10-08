@@ -1,26 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://cyh1628kh3dx7"]
+[gd_scene load_steps=8 format=3 uid="uid://cyh1628kh3dx7"]
 
 [ext_resource type="Script" path="res://script/roulot.gd" id="1_37k2d"]
 [ext_resource type="AudioStream" uid="uid://dcc5eo4gd44ih" path="res://son/Voiture_enemie.mp3" id="2_c8naj"]
+[ext_resource type="PackedScene" uid="uid://by8xncbg0bhmd" path="res://model/Rouleau.dae" id="2_kkky2"]
+[ext_resource type="Texture2D" uid="uid://g75sf515n66o" path="res://Textures/Rouleau Base Color.png" id="3_tewgg"]
+[ext_resource type="PackedScene" uid="uid://6txdh5nhxcph" path="res://scene/gyrophare.tscn" id="5_hiiih"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v21q4"]
-height = 3.25716
+radius = 0.441592
+height = 1.90983
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_rvsx8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_20mk0"]
+albedo_texture = ExtResource("3_tewgg")
 
 [node name="Roulot" type="PathFollow3D"]
 script = ExtResource("1_37k2d")
 
 [node name="Roulot" type="Area3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Roulot"]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 3.88387e-08, 0.117349, 0.181239)
 shape = SubResource("CapsuleShape3D_v21q4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("CylinderMesh_rvsx8")
-skeleton = NodePath("../Roulot")
+[node name="rouleau" parent="." instance=ExtResource("2_kkky2")]
+transform = Transform3D(-0.15, 0, -2.26494e-08, 0, 0.15, 0, 2.26494e-08, 0, -0.15, 0, 0, 0)
+
+[node name="Cube" parent="rouleau" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_20mk0")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("2_c8naj")
@@ -28,4 +37,9 @@ volume_db = 2.0
 unit_size = 40.0
 autoplay = true
 
+[node name="Gyrophare" parent="." instance=ExtResource("5_hiiih")]
+transform = Transform3D(1, 0, 0, 0, 0.988164, 0.1534, 0, -0.1534, 0.988164, 0.327568, 0.900539, 0.400987)
+
 [connection signal="body_entered" from="Roulot" to="." method="_on_roulot_body_entered"]
+
+[editable path="rouleau"]
