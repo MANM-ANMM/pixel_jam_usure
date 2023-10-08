@@ -2,7 +2,11 @@
 
 importer="wav"
 type="AudioStreamWAV"
+<<<<<<< HEAD
 uid="uid://d28hfqmxcsajr"
+=======
+uid="uid://jqyjfg3oaml"
+>>>>>>> 75a89f062cd892a740ea7bc5885d9e1be92c830e
 path="res://.godot/imported/voitures2.wav-ef6d325296af159b46b760cb51b448e4.sample"
 
 [deps]
@@ -18,7 +22,11 @@ force/max_rate=false
 force/max_rate_hz=44100
 edit/trim=false
 edit/normalize=false
+<<<<<<< HEAD
 edit/loop_mode=0
+=======
+edit/loop_mode=2
+>>>>>>> 75a89f062cd892a740ea7bc5885d9e1be92c830e
 edit/loop_begin=0
 edit/loop_end=-1
 compress/mode=0
