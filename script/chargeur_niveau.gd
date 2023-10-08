@@ -13,6 +13,7 @@ func start():
 	var v:=voiture.instantiate()
 	add_child(v)
 	v.position = m.spawn_voiture.global_position
+	v.rotation.y = m.spawn_voiture.rotation.y
 	var c:= camera.instantiate()
 	add_child(c)
 	c.global_position = m.spawn_camera.global_position
