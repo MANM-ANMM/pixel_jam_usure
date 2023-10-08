@@ -15,7 +15,7 @@ func start():
 	v.position = m.spawn_voiture.global_position
 	var c:= camera.instantiate()
 	add_child(c)
-	c.position = m.spawn_camera.global_position
+	c.global_position = m.spawn_camera.global_position
 	c.voit = v
 	c.distance_voit = c.distance_2d(m.spawn_camera.global_position, v.global_position)
 	

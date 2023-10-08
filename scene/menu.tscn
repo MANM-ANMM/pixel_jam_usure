@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://o1ol0vwldtcv"]
+[gd_scene load_steps=7 format=3 uid="uid://2lnktfro1isa"]
 
 [ext_resource type="Script" path="res://script/menu.gd" id="1_d2njw"]
-[ext_resource type="PackedScene" uid="uid://bdbajbpkhs718" path="res://scene/chargeur_niveau.tscn" id="2_71neh"]
+[ext_resource type="PackedScene" path="res://scene/chargeur_niveau.tscn" id="2_71neh"]
 [ext_resource type="PackedScene" uid="uid://sjvvtnqeg7rr" path="res://scene/maps/map_desert.tscn" id="2_o8cnp"]
-[ext_resource type="PackedScene" uid="uid://dvuq16hi6tp4g" path="res://scene/camera_suiveuse.tscn" id="4_hvcp4"]
+[ext_resource type="PackedScene" uid="uid://cqe4d136dwqbx" path="res://scene/maps/map_ice_and_fire.tscn" id="3_1nj5d"]
+[ext_resource type="PackedScene" path="res://scene/camera_suiveuse.tscn" id="4_hvcp4"]
+[ext_resource type="PackedScene" uid="uid://bu7neudavvfh" path="res://scene/maps/tiny_mountains.tscn" id="4_t4fi5"]
 
 [node name="Menu" type="Node3D"]
 script = ExtResource("1_d2njw")
-maps = Array[PackedScene]([ExtResource("2_o8cnp")])
+maps = Array[PackedScene]([ExtResource("2_o8cnp"), ExtResource("3_1nj5d"), ExtResource("4_t4fi5")])
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -22,8 +24,19 @@ grow_vertical = 2
 layout_mode = 2
 text = "Desert"
 
+[node name="Montagne" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Montagne"
+
+[node name="Foret" type="Button" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+text = "Foret
+"
+
 [node name="chargeurNiveau" parent="." instance=ExtResource("2_71neh")]
 camera = ExtResource("4_hvcp4")
 
 [connection signal="pressed" from="CanvasLayer/HBoxContainer/Desert" to="." method="_on_desert_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Montagne" to="." method="_on_montagne_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/Foret" to="." method="_on_foret_pressed"]
 [connection signal="niveau_termine" from="chargeurNiveau" to="." method="_on_chargeur_niveau_niveau_termine"]
