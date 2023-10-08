@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctakwyoc511pp"]
+
+[ext_resource type="Script" path="res://script/checkpoint.gd" id="1_0rnxe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1sdfb"]
+emission_enabled = true
+emission = Color(0.32549, 0.968627, 0.282353, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0dtk4"]
+material = SubResource("StandardMaterial3D_1sdfb")
+radius = 3.0
+height = 6.0
+
+[node name="Checkpoint" type="Area3D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_0rnxe")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_color = Color(0.0784314, 1, 0.219608, 1)
+light_energy = 2.732
+omni_range = 3.212
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="OmniLight3D"]
+mesh = SubResource("SphereMesh_0dtk4")
+skeleton = NodePath("../..")
