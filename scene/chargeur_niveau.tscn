@@ -1,0 +1,12 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdbajbpkhs718"]
+
+[ext_resource type="Script" path="res://script/chargeur_niveau.gd" id="1_e43sx"]
+[ext_resource type="PackedScene" uid="uid://sjvvtnqeg7rr" path="res://scene/maps/map_desert.tscn" id="2_3havi"]
+[ext_resource type="PackedScene" uid="uid://c15ovux6s7bt0" path="res://scene/voiture.tscn" id="3_tm51e"]
+[ext_resource type="PackedScene" uid="uid://cyh1628kh3dx7" path="res://scene/roulot.tscn" id="4_af53a"]
+
+[node name="chargeurNiveau" type="Node3D"]
+script = ExtResource("1_e43sx")
+map = ExtResource("2_3havi")
+voiture = ExtResource("3_tm51e")
+roulot = ExtResource("4_af53a")

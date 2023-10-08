@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cyh1628kh3dx7"]
+
+[ext_resource type="Script" path="res://script/roulot.gd" id="1_37k2d"]
+[ext_resource type="AudioStream" uid="uid://dcc5eo4gd44ih" path="res://son/Voiture_enemie.mp3" id="2_c8naj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v21q4"]
+height = 3.25716
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rvsx8"]
+
+[node name="Roulot" type="PathFollow3D"]
+script = ExtResource("1_37k2d")
+
+[node name="Roulot" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Roulot"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_v21q4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_rvsx8")
+skeleton = NodePath("../Roulot")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_c8naj")
+volume_db = 2.0
+unit_size = 40.0
+autoplay = true
+
+[connection signal="body_entered" from="Roulot" to="." method="_on_roulot_body_entered"]

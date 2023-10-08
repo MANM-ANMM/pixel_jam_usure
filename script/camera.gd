@@ -1,11 +1,14 @@
 extends Camera3D
 
-@export var voit :VehicleBody3D
+@export var voit :VehicleBody3D:
+	set(val):
+		voit = val
+		distance_voit = distance_2d(voit.position, position)
 
 var angle_cam := 0
 var smooth_x:=100.0
 
-@onready var distance_voit:=distance_2d(voit.position,position)
+var distance_voit:float = 20
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

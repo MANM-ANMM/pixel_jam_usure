@@ -122,4 +122,8 @@ light_energy = 6.702
 spot_range = 68.9757
 spot_angle = 22.5201
 
+[node name="AudioListener3D" type="AudioListener3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.49852, 2.32019)
+current = true
+
 [editable path="Voiture_peinte"]

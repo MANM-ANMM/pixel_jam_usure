@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://g25d8uac6l4k"]
+[gd_scene load_steps=11 format=3 uid="uid://g25d8uac6l4k"]
 
 [ext_resource type="PackedScene" uid="uid://c15ovux6s7bt0" path="res://scene/voiture.tscn" id="1_2q58a"]
 [ext_resource type="Script" path="res://script/camera.gd" id="2_udi7j"]
-[ext_resource type="PackedScene" uid="uid://cqe4d136dwqbx" path="res://scene/maps/map_ice_and_fire.tscn" id="3_riv8w"]
+[ext_resource type="PackedScene" uid="uid://sjvvtnqeg7rr" path="res://scene/maps/map_desert.tscn" id="3_qhuji"]
+[ext_resource type="PackedScene" uid="uid://cyh1628kh3dx7" path="res://scene/roulot.tscn" id="4_d8nvq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_174gc"]
 
@@ -29,7 +30,7 @@ shape = SubResource("WorldBoundaryShape3D_jwxva")
 disabled = true
 
 [node name="Voiture" parent="." instance=ExtResource("1_2q58a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -119.427, -7.89505, -143.531)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -262.015, 19.2187, -385.911)
 
 [node name="Camera3D2" type="Camera3D" parent="Voiture"]
 transform = Transform3D(0.108624, 0, 0.994083, 0, 1, 0, -0.994083, 0, 0.108624, 7.99028, 0.53401, 0)
@@ -46,10 +47,19 @@ visible = false
 mesh = SubResource("PlaneMesh_gj7fm")
 
 [node name="Camera3D" type="Camera3D" parent="." node_paths=PackedStringArray("voit")]
-transform = Transform3D(-1, 4.43989e-08, -1.44321e-07, 0, 0.955793, 0.29404, 1.50996e-07, 0.29404, -0.955793, -119.427, 25.3624, -178.44)
+transform = Transform3D(-1, 4.43989e-08, -1.44321e-07, 0, 0.955793, 0.29404, 1.50996e-07, 0.29404, -0.955793, -262.024, 33.0361, -415.99)
 current = true
 script = ExtResource("2_udi7j")
 voit = NodePath("../Voiture")
 
-[node name="Map_Ice_and_Fire" parent="." instance=ExtResource("3_riv8w")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, -60.6408, 0)
+[node name="map_desert" parent="." instance=ExtResource("3_qhuji")]
+
+[node name="Roulot" parent="map_desert/PathRoulot" index="0" instance=ExtResource("4_d8nvq")]
+transform = Transform3D(0.410152, 0.112395, 0.905056, 0.159735, 0.96818, -0.19262, -0.89792, 0.223574, 0.379146, -1.55928, 3.26348, -10.3987)
+progress = 16.41
+
+[node name="AudioStreamPlayer3D" parent="map_desert/PathRoulot/Roulot" index="2"]
+doppler_tracking = 2
+
+[editable path="map_desert"]
+[editable path="map_desert/PathRoulot/Roulot"]
