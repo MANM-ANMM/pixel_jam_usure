@@ -4,6 +4,7 @@ var numero_checkpoint:=0
 var check_actif:Checkpoint=null
 var nombre_tours:=0
 
+signal fin_tour()
 
 func _ready():
 	check_actif = get_child(numero_checkpoint)
@@ -15,6 +16,7 @@ func next_checkpoint(body):
 	numero_checkpoint += 1
 	if numero_checkpoint==get_child_count():
 		nombre_tours+=1
+		emit_signal("fin_tour")
 		numero_checkpoint = 0
 	
 	check_actif = get_child(numero_checkpoint)

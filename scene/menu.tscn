@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://2lnktfro1isa"]
 
 [ext_resource type="Script" path="res://script/menu.gd" id="1_d2njw"]
-[ext_resource type="PackedScene" path="res://scene/chargeur_niveau.tscn" id="2_71neh"]
+[ext_resource type="PackedScene" uid="uid://bdbajbpkhs718" path="res://scene/chargeur_niveau.tscn" id="2_71neh"]
 [ext_resource type="PackedScene" uid="uid://sjvvtnqeg7rr" path="res://scene/maps/map_desert.tscn" id="2_o8cnp"]
 [ext_resource type="PackedScene" uid="uid://cqe4d136dwqbx" path="res://scene/maps/map_ice_and_fire.tscn" id="3_1nj5d"]
-[ext_resource type="PackedScene" path="res://scene/camera_suiveuse.tscn" id="4_hvcp4"]
+[ext_resource type="PackedScene" uid="uid://dvuq16hi6tp4g" path="res://scene/camera_suiveuse.tscn" id="4_hvcp4"]
 [ext_resource type="PackedScene" uid="uid://bu7neudavvfh" path="res://scene/maps/tiny_mountains.tscn" id="4_t4fi5"]
 
 [node name="Menu" type="Node3D"]

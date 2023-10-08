@@ -6,3 +6,4 @@ class_name Map
 @export var path_roulot:Path3D
 
 @export var starting_roulot:float
+@export var gestionnaire_checkpoint:Node3D

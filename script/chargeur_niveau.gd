@@ -22,6 +22,9 @@ func start():
 	var r:=roulot.instantiate()
 	m.path_roulot.add_child(r)
 	r.connect("touche", fin_niveau)
+	r.progress_ratio = m.starting_roulot
+	
+	m.gestionnaire_checkpoint.connect("fin_tour", fin_niveau)
 
 
 func fin_niveau():
