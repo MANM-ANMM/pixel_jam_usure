@@ -25,8 +25,6 @@ func _process(delta):
 	if x>200 :
 		direction = -direction
 		x=0
-	print(usure)
-	print(direction)
 
 
 func log10(x):

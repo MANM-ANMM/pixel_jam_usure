@@ -57,7 +57,8 @@ func _physics_process(delta):
 
 func _integrate_forces(state):
 	if Input.is_action_just_pressed("klaxoner"):
-		state.apply_torque_impulse(Vector3(0,0, sign(steering)*1000))
+		
+		state.apply_torque_impulse(transform.basis.z * sign(steering)*1000)
 		if randi() % 2:
 			$AudioKlax1.play()
 		else:
